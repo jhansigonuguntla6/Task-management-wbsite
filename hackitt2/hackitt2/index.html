@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Task Manager</h1>
+        <div id="user-info">
+            <span id="user-username"></span>
+            <a id="logout-link" href="logout/logout.html" style="display: none;">Logout</a>
+        </div>
+        <h3><a href="Login Page/login.html" target="_blank" id="login-link">Login</a></h3>
+        <h3><a href="create page/create.html" target="_blank">Create an Account</a></h3>
+    </header>
+
+    <main>
+        <div class="task-form">
+            <input type="text" id="task-input" placeholder="Add a new task">
+            <input type="date" id="due-date">
+            <button id="add-task">Add Task</button>
+        </div>
+        <ul id="task-list"></ul>
+    </main>
+
+    <script>
+        // Check if the user is logged in
+        const username = sessionStorage.getItem("username");
+        const loginLink = document.getElementById("login-link");
+        const logoutLink = document.getElementById("logout-link");
+        const userUsername = document.getElementById("user-username");
+
+        if (username) {
+            // User is logged in
+            loginLink.style.display = "none";
+            logoutLink.style.display = "inline";
+            userUsername.textContent = "Logged in as: " + username;
+        } else {
+            // User is not logged in
+            loginLink.style.display = "inline";
+            logoutLink.style.display = "none";
+            userUsername.textContent = "";
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>User Registration</title>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Register an Account</h2>
+        <form id="registration-form">
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Choose a username" required>
+            </div>
+            <div class="input-container">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Choose a password" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        // Registration form submission
+        const registrationForm = document.getElementById("registration-form");
+
+        registrationForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get user input values
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Store user data in localStorage
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+
+            alert("Registration successful! You can now log in.");
+            registrationForm.reset();
+            window.location.href = "file:///C:/Users/tanvi/Documents/hackitt/index.html"; 
+        });
+    </script>
+</body>
+</html>
